@@ -14,7 +14,7 @@ services:
     ports:
       - '3000:3000'
     volumes:
-      - '.:/onebitchat'
+      - '.:/easy_mark'
     volumes_from:
     - box
     stdin_open: true
