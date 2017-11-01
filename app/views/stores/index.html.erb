@@ -5,7 +5,7 @@
 
   <div class="row cards">
     <div class="col s8 offset-s2">
-      <% if !@stores.empty? %>
+      <% if @stores.any? %>
         <% @stores.each do |s| %>
           <div class="card horizontal">
             <div class="card-content col s12">
@@ -33,8 +33,8 @@
   </div>
 
   <div class="fixed-action-btn stores-btn">
-    <%= form_tag("/stores", method: "post") do %>
-      <button class="btn-floating btn-large blue pulse" type="submit">
+    <%= form_tag("/stores/new", method: "get") do %>
+      <button id="adicionar-store" class="btn-floating btn-large blue pulse" type="submit">
         <i class="large material-icons">add</i>
       </button>
     <% end %>
