@@ -17,6 +17,8 @@ gem 'jbuilder', '~> 2.5'
 gem 'devise', '~> 4.2'
 gem 'materialize-sass'
 gem 'material_icons'
+gem "gritter", "1.2.0"
+
 
 group :test do
   gem 'factory_bot_rails'
