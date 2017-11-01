@@ -14,9 +14,9 @@ class StoresController < ApplicationController
       @store.sellers.build
       render :new
     elsif @store.save
-      redirect_to stores_path()
+      redirect_to stores_path, notice: "Loja criada com sucesso!"
     else
-      render :new
+      render :new, notice: @store.errors
     end
   end
 

@@ -1,0 +1,7 @@
+<% if record.errors.any? %>
+<% if @post.errors.any? %>
+  <% @post.errors.full_messages.each do |msg|%>
+    <%= js add_gritter(msg, title: "EasyMark App Notification", sticky: false, image: :notice) %>
+  <% end %>
+<% end %>
+<% end %>
