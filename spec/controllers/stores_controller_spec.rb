@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe StoresController, type: :controller do
+RSpec.describe StoresController do
   include Devise::Test::ControllerHelpers
 
   describe "GET #index" do
