@@ -1,5 +1,5 @@
 class StoresController < ApplicationController
-  before_action :set_store, only: [:show, :edit, :update]
+  before_action :set_store, only: [:show, :edit, :update, :destroy]
 
   def index
     @stores = current_user.stores
@@ -38,10 +38,15 @@ class StoresController < ApplicationController
     end
   end
 
+  def destroy
+    @store.destroy
+    redirect_to stores_path, notice: "Loja removida com sucesso!"
+  end
+
   private
 
     def store_params
-      params.require(:store).permit(:name, :sellers_attributes => [:id, :name, :store_id]).merge(user: current_user)
+      params.require(:store).permit(:name, :sellers_attributes => [:id, :name, :store_id, :_destroy]).merge(user: current_user)
     end
 
     def set_store

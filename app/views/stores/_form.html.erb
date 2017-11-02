@@ -40,6 +40,8 @@
                       <%= s.text_field :name, class: "validate"%>
                       <label for="name" class="active">Nome do Vendedor</label>
                     </div>
+                    <%= s.check_box :_destroy %>
+                    <%= s.label :_destroy, "Remover Vendedor" %>
                   </div>
                 <% end %>
                 <%= f.button type: "submit", name: "add_new_seller", class: "btn-floating btn-small blue", role: "button" do %>
@@ -54,9 +56,9 @@
 
     <div class="row btn-actions">
      <div class="col s12 center">
-       <div class="col s6 m3 offset-m3 l2 offset-l4">
+       <div class="col s6 m3 offset-m3 l2 offset-l2">
          <%= f.button type: "submit", id: "cadastrar", class: "btn btn-primary blue", role: "button" do %>
-           <i class="fa fa-check"></i>Cadastrar
+           <i class="fa fa-check"></i>Salvar
          <% end %>
        </div>
      </div>
