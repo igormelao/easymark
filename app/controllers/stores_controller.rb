@@ -1,4 +1,6 @@
 class StoresController < ApplicationController
+  before_action :set_store, only: [:show, :edit, :update]
+
   def index
     @stores = current_user.stores
   end
@@ -20,9 +22,29 @@ class StoresController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    if params[:add_new_seller]
+      @store.sellers.build
+      render :new
+    elsif
+      if @store.update(store_params)
+        redirect_to @store, notice: "Loja atualizada com sucesso!"
+      else
+        render :edit, @sotore.errors
+      end
+    end
+  end
+
   private
 
     def store_params
       params.require(:store).permit(:name, :sellers_attributes => [:id, :name, :store_id]).merge(user: current_user)
+    end
+
+    def set_store
+      @store = Store.find(params[:id])
     end
 end
