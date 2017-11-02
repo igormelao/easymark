@@ -1,1 +1,11 @@
-<%= render "form" %>
+
+<div class="row stores">
+  <%= render "shared/form_errors", record: @store %>
+
+  <div class="col s8 offset-s2">
+    <p class="title">Nova Loja</p>
+  </div>
+
+  <%= render "form" %>
+
+</div>

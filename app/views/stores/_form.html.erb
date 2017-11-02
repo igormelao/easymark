@@ -1,22 +1,14 @@
-<div class="row stores">
-  <%= render "shared/form_errors", record: @store %>
-
-  <div class="col s8 offset-s2">
-    <p class="title">Informações da Loja</p>
-  </div>
-
-  <%= form_for @store, html: {class: "col s12 update_store"} do |f| %>
-    <div class="store">
-      <div class="row cards">
-        <div class="col s8 offset-s2">
-          <div class="card horizontal">
-            <div class="card-content col s12">
+<%= form_for @store, html: {class: "col s12 update_store"} do |f| %>
+  <div class="store">
+    <div class="row cards">
+      <div class="col s8 offset-s2">
+        <div class="card horizontal">
+          <div class="card-content col s12">
+              <div class="row">
                 <div class="row">
-                  <div class="row">
-                    <div class="col s12 l4 input-field">
-                      <%= f.text_field :name, 'data-length': "20" %>
-                      <label for="title" class="<%= (@store.name)? 'active' : '' %>">Nome da Loja</label>
-                    </div>
+                  <div class="col s12 l4 input-field">
+                    <%= f.text_field :name, 'data-length': "20" %>
+                    <label for="title" class="<%= (@store.name)? 'active' : '' %>">Nome da Loja</label>
                   </div>
                 </div>
               </div>
@@ -24,44 +16,50 @@
           </div>
         </div>
       </div>
+    </div>
 
+    <div class="col s8 offset-s2">
+      <p class="title">Vendedores</p>
+    </div>
+
+    <div class="row cards members">
       <div class="col s8 offset-s2">
-        <p class="title">Vendedores</p>
-      </div>
-
-      <div class="row cards members">
-        <div class="col s8 offset-s2">
-          <div class="card horizontal">
-            <div class="card-content col s12">
-              <div class="member_list">
-                <%= f.fields_for :sellers do |s| %>
-                  <div class="row">
-                    <div class="col s12 m5 input-field">
-                      <%= s.text_field :name, class: "validate"%>
-                      <label for="name" class="active">Nome do Vendedor</label>
-                    </div>
-                    <%= s.check_box :_destroy %>
-                    <%= s.label :_destroy, "Remover Vendedor" %>
+        <div class="card horizontal">
+          <div class="card-content col s12">
+            <div class="member_list">
+              <%= f.fields_for :sellers do |s| %>
+                <div class="row">
+                  <div class="col s12 m5 input-field">
+                    <%= s.text_field :name, class: "validate"%>
+                    <label for="name" class="active">Nome do Vendedor</label>
                   </div>
-                <% end %>
-                <%= f.button type: "submit", name: "add_new_seller", class: "btn-floating btn-small blue", role: "button" do %>
-                  <i class="large material-icons">add</i>
-                <% end %>
-              </div>
+                  <%= s.check_box :_destroy %>
+                  <%= s.label :_destroy, "Remover Vendedor" %>
+                </div>
+              <% end %>
+              <%= f.button type: "submit", name: "add_new_seller", class: "btn-floating btn-small blue", role: "button" do %>
+                <i class="large material-icons">add</i>
+              <% end %>
             </div>
           </div>
         </div>
       </div>
     </div>
+  </div>
 
-    <div class="row btn-actions">
-     <div class="col s12 center">
-       <div class="col s6 m3 offset-m3 l2 offset-l2">
-         <%= f.button type: "submit", id: "cadastrar", class: "btn btn-primary blue", role: "button" do %>
-           <i class="fa fa-check"></i>Salvar
-         <% end %>
-       </div>
+  <div class="row">
+   <div class="col s12 center">
+     <div class="col s6">
+       <%= f.button type: "submit", id: "cadastrar", class: "btn waves-effect waves-light blue", role: "button" do %>
+         <i class="material-icons left">save</i>Salvar
+       <% end %>
      </div>
-    </div>
-  <% end %>
-</div>
+     <div class="col s6">
+       <a href="/stores" class= "waves-effect waves-light btn">
+         <i class="material-icons left">arrow_back</i>
+         Voltar
+       </a>
+     </div>
+   </div>
+  </div>
+<% end %>
