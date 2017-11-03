@@ -1,5 +1,6 @@
 class Mark < ApplicationRecord
   belongs_to :store
+  has_many :daily_marks
 
   validates :name,
             :start_date,
@@ -11,6 +12,8 @@ class Mark < ApplicationRecord
            :start_date_must_be_smaller_than_end_date,
            :end_date_must_be_greater_than_start_date,
            :period_must_be_unique_in_same_store
+
+  after_create :create_daily_marks
 
   def period
     self.start_date..end_date
@@ -92,6 +95,13 @@ class Mark < ApplicationRecord
       end
 
       Mark.where(sql, params).take
+    end
+
+    def create_daily_marks
+      value_average = value / period.to_a.size
+      period.each do |date|
+        daily_marks.create(date: date, value: value_average)
+      end
     end
 
 end
