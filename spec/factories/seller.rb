@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :seller do
-    name { FFaker::Name.name }
-    store
+    sequence(:name) { |n| "Vendedor #{n}" }
+    association :store
   end
 end
