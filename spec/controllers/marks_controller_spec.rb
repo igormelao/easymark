@@ -22,7 +22,7 @@ RSpec.describe MarksController do
 
       it "redirects to show store" do
         expect(response).to have_http_status(302)
-        expect(response).to redirect_to marks_path(Mark.last.id)
+        expect(response).to redirect_to store_path(@store)
       end
 
       it "with rights attributes" do
