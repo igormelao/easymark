@@ -1,2 +1,48 @@
-<h1>Marks#show</h1>
-<p>Find me in app/views/marks/show.html.erb</p>
+<div class="row marks">
+
+  <div class="col s8 offset-s2">
+    <p class="title"><%= @mark.name %></p>
+  </div>
+
+  <div class="mark">
+    <div class="row cards">
+      <div class="col s8 offset-s2">
+        <div class="card horizontal">
+          <div class="card-content col s12">
+              <div class="row">
+                <div class="row">
+                  <div class="col s12 l3">
+                    <p>Mês referencia <%= @mark.month %></p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col s12 l3">
+                    <p>Data de início <%= @mark.start_date %></p>
+                  </div>
+                  <div class="col s12 l3">
+                    <p>Data final <%= @mark.end_date %></p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col s12 l3 input-field">
+                    <p>Data de início <%= number_to_currency(@mark.value) %></p>
+                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row btn-actions">
+     <div class="col s12 center">
+       <div class="col s12">
+         <a href="/stores" class= "waves-effect waves-light btn blue">
+           <i class="material-icons left">arrow_back</i>
+           Voltar
+         </a>
+       </div>
+     </div>
+    </div>
+
+</div>

@@ -32,6 +32,65 @@
       <p class="title">Metas</p>
     </div>
 
+    <div class="store">
+      <div class="row cards">
+        <div class="col s8 offset-s2">
+          <div class="card horizontal">
+            <div class="card-content col s12">
+                <div class="row">
+                  <% if @store.marks.any? %>
+                    <% @store.marks.each do |mark| %>
+                      <div class="row">
+                        <div class="col s12 m4 l4">
+                          <p class="title"><%= truncate(mark.name, length: 30, omission: '...') %></p>
+                        </div>
+                        <div class="col s22 m2 l2">
+                          <p>Data início</p>
+                          <p class="data"><%= (mark.start_date)? mark.start_date.strftime("%d/%m/%y") : '' %></p>
+                        </div>
+                        <div class="col s22 m2 l2">
+                          <p>Data fim</p>
+                          <p class="data"><%= (mark.end_date)? mark.end_date.strftime("%d/%m/%y") : '' %></p>
+                        </div>
+                        <div class="col s22 m2 l2">
+                          <p>Valor</p>
+                          <p><%= number_to_currency(mark.value) %></p>
+                        </div>
+                        <div class="col s12 m1 l1">
+                          <a href='<%= "/marks/#{@store.id}/edit/#{mark.id}" %>' >
+                            <i class="material-icons icon">edit</i>
+                          </a>
+                        </div>
+                        <div class="col s12 m1 l1">
+                          <a data-confirm="Você tem certeza?" rel="nofollow" data-method="delete" href='<%= "/marks/#{mark.id}" %>'>
+                            <i class="material-icons icon">delete</i>
+                          </a>
+                        </div>
+                        <div class="col l4 s12 m12 center enter">
+                          <div class="row">
+                            <div class="col s12">
+                              <a class="waves-effect waves-light btn blue" href='<%= "/marks/#{mark.id}" %>'>Entrar</a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    <% end %>
+                  <% else %>
+                    <p> Não existem metas cadastradas!</p>
+                  <% end %>
+                </div>
+                <div class="row">
+                  <div class="col s12">
+                    <a class="btn-floating btn-small blue" href='<%= "/marks/#{@store.id}/new" %>'>
+                        <i class="large material-icons">add</i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
 
     <div class="row btn-actions">
      <div class="col s12 center">

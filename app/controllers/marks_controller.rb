@@ -1,20 +1,35 @@
 class MarksController < ApplicationController
-  before_action :set_store
-  before_action :set_mark, only: [:show]
+  before_action :set_store, except: [:show,:destroy, :update]
+  before_action :set_mark, only: [:show, :edit, :update, :destroy]
+
   def new
     @mark = Mark.new
   end
 
   def create
     @mark = Mark.new(mark_params)
-    @mark.month = mark_params[:month] << "-01"
-    @mark.store = @store
-
     if @mark.save
-      redirect_to marks_path(@mark), flash: { success: "Meta criada com sucesso!"}
+      redirect_to "/stores/#{@mark.store.id}", flash: { success: "Meta criada com sucesso!"}
     else
-      render :new
+      render :new, :id_store => @store.id
     end
+  end
+
+  def edit
+  end
+
+  def update
+    if @mark.update(mark_params)
+      redirect_to stores_path(@mark.store), notice: "Meta atualizada com sucesso!"
+    else
+      render :edit, @mark.errors, :id_store => @mark.store.id
+    end
+  end
+
+  def destroy
+    @store = @mark.store
+    @mark.destroy
+    redirect_to stores_path(@store), notice: "Meta removida com sucesso!", :id_store => @store.id
   end
 
   def show
@@ -31,6 +46,6 @@ class MarksController < ApplicationController
     end
 
     def mark_params
-      mark_params = params.require(:mark).permit(:name, :start_date, :end_date, :month, :value)
+      mark_params = params.require(:mark).permit(:name, :start_date, :end_date, :month, :value).merge(store: @store)
     end
 end

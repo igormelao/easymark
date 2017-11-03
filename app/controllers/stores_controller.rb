@@ -33,7 +33,7 @@ class StoresController < ApplicationController
       if @store.update(store_params)
         redirect_to @store, notice: "Loja atualizada com sucesso!"
       else
-        render :edit, @sotore.errors
+        render :edit, @store.errors
       end
     end
   end
