@@ -2,7 +2,7 @@
 # [EasyMark]
 
 <p>Tenha controle sobre suas metas!</p>
-Controle facilmente informações valiosas que te permitirão maximizar os lucros da sua loja.
+<p>Controle facilmente informações valiosas que te permitirão maximizar os lucros da sua loja.</p>
 Rápido, fácil e intuitivo.
 
 
