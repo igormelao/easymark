@@ -3,7 +3,7 @@
 
 <p>Tenha controle sobre suas metas!</p>
 <p>Controle facilmente informações valiosas que te permitirão maximizar os lucros da sua loja.</p>
-Rápido, fácil e intuitivo.
+<p>Rápido, fácil e intuitivo.</p>
 
 
 
