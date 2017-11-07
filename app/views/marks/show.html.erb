@@ -12,27 +12,28 @@
               <div class="row">
                 <div class="row">
                   <div class="col s12 l3">
-                    <p>Mês referencia <%= @mark.month %></p>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col s12 l3">
-                    <p>Data de início <%= @mark.start_date %></p>
+                    <p><b>Mês referencia</b></p>
+                    <p><%= @mark.month.strftime("%B") %></p>
                   </div>
                   <div class="col s12 l3">
-                    <p>Data final <%= @mark.end_date %></p>
+                    <p><b>Data de início</b></p>
+                    <p><%= @mark.start_date %></p>
                   </div>
-                </div>
-                <div class="row">
-                  <div class="col s12 l3 input-field">
-                    <p>Data de início <%= number_to_currency(@mark.value) %></p>
+                  <div class="col s12 l3">
+                    <p><b>Data final</b></p>
+                    <p><%= @mark.end_date %></p>
+                  </div>
+                  <div class="col s12 l3">
+                    <p><b>Valor</b></p>
+                    <p><%= number_to_currency(@mark.value) %></p>
                  </div>
+                </div>
               </div>
-            </div>
           </div>
         </div>
       </div>
     </div>
+  </div>
 
     <% @mark.daily_marks.each do |daily_mark| %>
       <div class="col s8 offset-s2">
@@ -46,7 +47,7 @@
               <div class="card-content col s12">
                 <div class="row">
                   <div class="row">
-                    Teste
+                      Vendedor
                   </div>
                 </div>
               </div>
@@ -59,7 +60,7 @@
     <div class="row btn-actions">
      <div class="col s12 center">
        <div class="col s12">
-         <a href="/stores" class= "waves-effect waves-light btn blue">
+         <a href="/stores/<%= @mark.store.id %>" class= "waves-effect waves-light btn blue">
            <i class="material-icons left">arrow_back</i>
            Voltar
          </a>
