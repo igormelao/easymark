@@ -7,22 +7,23 @@
   <h5 class="subtitle2">Rápido, fácil e intuitivo </h5>
 </div>
 
-
-
+<br/>
+<br/>
 
 ![ruby](https://img.shields.io/badge/Ruby-2.4.1-red.svg)
 ![rails](https://img.shields.io/badge/Rails-5.0.1-red.svg)
 ![docker](https://img.shields.io/docker/automated/jrottenberg/ffmpeg.svg)
-[ ![Codeship Status for igormelao/easymark](https://app.codeship.com/projects/f5581220-a26a-0135-436c-7a11b80692af/status?branch=master)](https://app.codeship.com/projects/254702)
+![Codeship Status for igormelao/easymark](https://app.codeship.com/projects/f5581220-a26a-0135-436c-7a11b80692af/status?branch=master)](https://app.codeship.com/projects/254702)
 
 
 # Basic Overview
->>>
+
 <p>Um Easy Mark é um aplicativo para proprietários de lojas que necessitam controlar facilmente metas de vendas a serem cumpridas pelo seus vendedores. No aplicativo, o proprietário poderá cadastrar lojas, vendedores e metas de vendas periódicas. O sistema irá automaticamente subdividir as metas em metas diárias, 	permitindo um controle mais preciso. O proprietário irá cadastrar o valor total de cada meta diária e associar quais vendedores irão participar. O proprietário também poderá visualizar o valor total de todas as metas individuais de cada vendedor.</p>
 
 
 Enjoy it!
->>>
+
+
 # Demo
 
 <a href="https://easymark.herokuapp.com/">Easy Mark</a>
