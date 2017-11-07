@@ -1,19 +1,15 @@
 
 # [EasyMark]
-
-<div class="center">
-  <h4 class="title">Tenha controle sobre suas metas!</h4>
-  <h5 class="subtitle">Controle facilmente informações valiosas que te permitirão maximizar os lucros da sua loja</h5>
-  <h5 class="subtitle2">Rápido, fácil e intuitivo </h5>
-</div>
-
-<br/>
-<br/>
-
 ![ruby](https://img.shields.io/badge/Ruby-2.4.1-red.svg)
 ![rails](https://img.shields.io/badge/Rails-5.0.1-red.svg)
 ![docker](https://img.shields.io/docker/automated/jrottenberg/ffmpeg.svg)
 ![Codeship Status for igormelao/easymark](https://app.codeship.com/projects/f5581220-a26a-0135-436c-7a11b80692af/status?branch=master)](https://app.codeship.com/projects/254702)
+
+<div>
+  <h4>Tenha controle sobre suas metas!</h4>
+  <h5>Controle facilmente informações valiosas que te permitirão maximizar os lucros da sua loja</h5>
+  <h5>Rápido, fácil e intuitivo</h5>
+</div>
 
 
 # Basic Overview
