@@ -17,12 +17,12 @@
 
 
 # Basic Overview
-
+>>>
 <p>Um Easy Mark é um aplicativo para proprietários de lojas que necessitam controlar facilmente metas de vendas a serem cumpridas pelo seus vendedores. No aplicativo, o proprietário poderá cadastrar lojas, vendedores e metas de vendas periódicas. O sistema irá automaticamente subdividir as metas em metas diárias, 	permitindo um controle mais preciso. O proprietário irá cadastrar o valor total de cada meta diária e associar quais vendedores irão participar. O proprietário também poderá visualizar o valor total de todas as metas individuais de cada vendedor.</p>
 
 
 Enjoy it!
-
+>>>
 # Demo
 
 <a href="https://easymark.herokuapp.com/">Easy Mark</a>

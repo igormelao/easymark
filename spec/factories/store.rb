@@ -2,6 +2,6 @@ FactoryBot.define do
   factory :store do
     sequence(:name) { |n| "Loja #{n}" }
     association :user
-    sellers [ Seller.new(name: "Vendedor") ]
+    sellers_attributes [ FactoryBot.attributes_for(:seller) ]
   end
 end

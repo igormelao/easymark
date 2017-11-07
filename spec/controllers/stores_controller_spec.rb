@@ -42,7 +42,7 @@ RSpec.describe StoresController do
     context "create store successfully" do
       before(:each) do
         @store_attributes = FactoryBot.attributes_for(:store, user: @current_user)
-        post :create, params: { store: { name: @store_attributes[:name], sellers_attributes: { "0" => { "name" => @store_attributes[:sellers][0][:name] } } } }
+        post :create, params: { store: { name: @store_attributes[:name], sellers_attributes: { "0" => { "name" => @store_attributes[:sellers_attributes][0][:name] } } } }
       end
 
       it "redirects to index store" do
@@ -57,7 +57,7 @@ RSpec.describe StoresController do
 
       it "with at least one seller created" do
         expect(Store.last.sellers.count).to eq(1)
-        expect(Store.last.sellers[0].name).to eq(@store_attributes[:sellers][0].name)
+        expect(Store.last.sellers[0].name).to eq(@store_attributes[:sellers_attributes][0][:name])
       end
 
     end
