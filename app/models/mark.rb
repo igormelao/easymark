@@ -1,6 +1,13 @@
 class Mark < ApplicationRecord
   belongs_to :store
-  has_many :daily_marks
+  has_many :daily_marks,
+          -> { includes(:sellers).order(:date) },
+          inverse_of: :mark,
+          dependent: :destroy
+
+
+  accepts_nested_attributes_for :daily_marks,
+                                allow_destroy: true
 
   validates :name,
             :start_date,

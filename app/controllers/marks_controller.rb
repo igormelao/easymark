@@ -1,7 +1,7 @@
 class MarksController < ApplicationController
   before_action :set_store, except: [:show,:destroy, :update]
-  before_action :set_mark, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_mark, except: [:new, :create ]
+  before_action :set_sellers, only: [:show]
   def new
     @mark = Mark.new
   end
@@ -9,7 +9,7 @@ class MarksController < ApplicationController
   def create
     @mark = Mark.new(mark_params)
     if @mark.save
-      redirect_to "/stores/#{@mark.store.id}", flash: { success: "Meta criada com sucesso!"}
+      redirect_to "/stores/#{@mark.store.id}", notice: "Meta criada com sucesso!"
     else
       render :new, :id_store => @store.id
     end
@@ -35,6 +35,14 @@ class MarksController < ApplicationController
   def show
   end
 
+  def update_daily_marks
+    if @mark.update(daily_marks_params)
+      redirect_to  "/marks/#{@mark.id}", notice:  "Metas diárias atualizadas com sucesso!"
+    else
+      render :show
+    end
+  end
+
   private
 
     def set_store
@@ -47,5 +55,13 @@ class MarksController < ApplicationController
 
     def mark_params
       mark_params = params.require(:mark).permit(:name, :start_date, :end_date, :month, :value).merge(store: @store)
+    end
+
+    def set_sellers
+      @sellers = @mark.store.sellers.order(:name)
+    end
+
+    def daily_marks_params
+      params.require(:mark).permit(daily_marks_attributes: [:id, :value, :new_seller_id])
     end
 end

@@ -1,7 +1,7 @@
 <div class="row marks">
 
   <div class="col s8 offset-s2">
-    <p class="title"><%= @mark.name %></p>
+    <p class="title">Meta <%= @mark.name %></p>
   </div>
 
   <div class="mark">
@@ -35,31 +35,61 @@
     </div>
   </div>
 
-    <% @mark.daily_marks.each do |daily_mark| %>
-      <div class="col s8 offset-s2">
-        <p class="title">Meta <%= daily_mark.date %> - <%= number_to_currency(daily_mark.value)%> </p>
-      </div>
+    <%= form_for @mark, url: update_daily_marks_path(id_store: @mark.store.id, id: @mark.id) do |m| %>
 
-      <div class="store">
-        <div class="row cards">
-          <div class="col s8 offset-s2">
-            <div class="card horizontal">
-              <div class="card-content col s12">
-                <div class="row">
+      <%= m.fields_for :daily_marks do |d| %>
+        <div class="col s8 offset-s2">
+          <p class="title">Meta <%= d.object.date %> - <%= number_to_currency(d.object.value)%> </p>
+        </div>
+
+        <div class="store">
+          <div class="row cards">
+            <div class="col s8 offset-s2">
+              <div class="card horizontal">
+                <div class="card-content col s12">
                   <div class="row">
-                      Vendedor
+                    <div class="row">
+                      <table class = "striped centered responsive-table">
+                         <tbody>
+
+                              <% if d.object.sellers.any? %>
+                                <%= d.fields_for :sellers do |seller| %>
+                                  <tr>
+                                     <td><%= truncate(seller.object.name, length: 30, omission: '...') %></td>
+                                  </tr>
+                                <% end %>
+                              <% end %>
+                              <tr>
+                                <td>
+                                  <%= d.collection_select :new_seller_id, @sellers, :id, :name, { prompt: "Escolha um vendedor", selected: nil }, { onchange: "this.form.submit()", class: "browser-default" }%>
+                                </td>
+                              </tr>
+
+                            <tr>
+                              <td>
+
+                              </td>
+                            </tr>
+                        </tbody>
+                      </table>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      <% end %>
     <% end %>
 
     <div class="row btn-actions">
      <div class="col s12 center">
-       <div class="col s12">
+       <div class="col s6">
+         <%= button_tag type: "submit", class: "btn waves-effect waves-light blue", role: "button" do %>
+           <i class="material-icons left">save</i>Salvar
+         <% end %>
+       </div>
+       <div class="col s6">
          <a href="/stores/<%= @mark.store.id %>" class= "waves-effect waves-light btn blue">
            <i class="material-icons left">arrow_back</i>
            Voltar
@@ -67,5 +97,4 @@
        </div>
      </div>
     </div>
-
 </div>

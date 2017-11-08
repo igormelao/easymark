@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171103014247) do
+ActiveRecord::Schema.define(version: 20171107231052) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,16 @@ ActiveRecord::Schema.define(version: 20171103014247) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["mark_id"], name: "index_daily_marks_on_mark_id", using: :btree
+  end
+
+  create_table "daily_marks_sellers", force: :cascade do |t|
+    t.integer  "daily_mark_id", null: false
+    t.integer  "seller_id",     null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["daily_mark_id", "seller_id"], name: "index_daily_marks_sellers_on_daily_mark_id_and_seller_id", unique: true, using: :btree
+    t.index ["daily_mark_id"], name: "index_daily_marks_sellers_on_daily_mark_id", using: :btree
+    t.index ["seller_id"], name: "index_daily_marks_sellers_on_seller_id", using: :btree
   end
 
   create_table "marks", force: :cascade do |t|
@@ -71,6 +81,8 @@ ActiveRecord::Schema.define(version: 20171103014247) do
   end
 
   add_foreign_key "daily_marks", "marks"
+  add_foreign_key "daily_marks_sellers", "daily_marks"
+  add_foreign_key "daily_marks_sellers", "sellers"
   add_foreign_key "marks", "stores"
   add_foreign_key "sellers", "stores"
   add_foreign_key "stores", "users"

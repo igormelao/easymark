@@ -63,6 +63,11 @@
                            <td><%= (mark.end_date)? mark.end_date.strftime("%d/%m/%y") : '' %></td>
                            <td><%= number_to_currency(mark.value) %></td>
                            <td>
+                             <a href='<%= "/marks/#{mark.id}" %>'>
+                               <i class="material-icons icon">assignment</i>
+                             </a>
+                           </td>
+                           <td>
                              <a href='<%= "/marks/#{@store.id}/edit/#{mark.id}" %>' >
                                <i class="material-icons icon">edit</i>
                              </a>
@@ -70,11 +75,6 @@
                            <td>
                              <a data-confirm="Você tem certeza?" rel="nofollow" data-method="delete" href='<%= "/marks/#{mark.id}" %>'>
                                <i class="material-icons icon">delete</i>
-                             </a>
-                           </td>
-                           <td>
-                             <a href='<%= "/marks/#{mark.id}" %>'>
-                               <i class="material-icons icon">assignment</i>
                              </a>
                            </td>
                         </tr>
