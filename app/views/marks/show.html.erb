@@ -35,51 +35,45 @@
     </div>
   </div>
 
-    <%= form_for @mark, url: update_daily_marks_path(id_store: @mark.store.id, id: @mark.id) do |m| %>
 
-      <%= m.fields_for :daily_marks do |d| %>
-        <div class="col s8 offset-s2">
-          <p class="title">Meta <%= d.object.date %> - <%= number_to_currency(d.object.value)%> </p>
-        </div>
+  <% @mark.daily_marks.each do |daily_mark| %>
+      <div class="col s8 offset-s2">
+        <p class="title">Meta <%= daily_mark.date %> - <%= number_to_currency(daily_mark.value)%> </p>
+      </div>
 
-        <div class="store">
-          <div class="row cards">
-            <div class="col s8 offset-s2">
-              <div class="card horizontal">
-                <div class="card-content col s12">
+      <div class="store">
+        <div class="row cards">
+          <div class="col s8 offset-s2">
+            <div class="card horizontal">
+              <div class="card-content col s12">
+                <div class="row">
                   <div class="row">
-                    <div class="row">
-                      <table class = "striped centered responsive-table">
-                         <tbody>
-
-                              <% if d.object.sellers.any? %>
-                                <%= d.fields_for :sellers do |seller| %>
-                                  <tr>
-                                     <td><%= truncate(seller.object.name, length: 30, omission: '...') %></td>
-                                  </tr>
-                                <% end %>
-                              <% end %>
-                              <tr>
-                                <td>
-                                  <%= d.collection_select :new_seller_id, @sellers, :id, :name, { prompt: "Escolha um vendedor", selected: nil }, { onchange: "this.form.submit()", class: "browser-default" }%>
-                                </td>
-                              </tr>
-
-                            <tr>
-                              <td>
-
-                              </td>
-                            </tr>
-                        </tbody>
-                      </table>
-                    </div>
+                    <table class = "striped centered responsive-table">
+                     <tbody>
+                      <% if daily_mark.sellers.any? %>
+                        <% daily_mark.sellers.each do |seller| %>
+                          <tr>
+                             <td><%= truncate(seller.name, length: 30, omission: '...') %></td>
+                          </tr>
+                        <% end %>
+                      <% end %>
+                      <tr>
+                        <td>
+                          <%= form_for daily_mark, url: update_daily_marks_path() do |d| %>
+                            <%= d.hidden_field :id, value: daily_mark.id %>
+                            <%= d.collection_select :seller_id, @sellers, :id, :name, { prompt: "Escolha um vendedor", selected: nil }, { onchange: "this.form.submit()", class: "browser-default" } %>
+                          <% end %>
+                        </td>
+                      </tr>
+                     </tbody>
+                    </table>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      <% end %>
+      </div>
     <% end %>
 
     <div class="row btn-actions">

@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   resources :stores
-  patch "/stores/:id_store/marks/:id/daily_marks", to: "marks#update_daily_marks", as: :update_daily_marks
+  patch "/daily_marks/:id", to: "marks#update_daily_marks", as: :update_daily_marks
 
   resources :marks, except: [:new, :edit]
   get "/marks/:id_store/new", to: "marks#new"
