@@ -2,6 +2,7 @@ class MarksController < ApplicationController
   before_action :set_store, except: [:show,:destroy, :update, :update_daily_marks]
   before_action :set_mark, except: [:new, :create, :update_daily_marks ]
   before_action :set_sellers, only: [:show]
+
   def new
     @mark = Mark.new
   end

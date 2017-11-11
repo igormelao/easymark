@@ -2,6 +2,6 @@
   <%= js add_gritter(flash[:alert], title: "EasyMark App Alert", sticky: false, image: :alert) %>
 <% elsif flash[:error] %>
   <%= js add_gritter(flash[:error], title: "EasyMark App Error", sticky: false, image: :error) %>
-<% else %>
+<% elsif flash[:notice] %>
   <%= js add_gritter(flash[:notice], title: "EasyMark App Notification", sticky: false, image: :notice) %>
 <% end %>
