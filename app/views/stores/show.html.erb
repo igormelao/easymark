@@ -14,7 +14,7 @@
         <div class="card horizontal">
           <div class="card-content col s12">
             <div class="row">
-                <table class = "striped centered responsive-table">
+                <table class="striped centered responsive-table">
                    <tbody>
                     <% @store.sellers.each do |seller| %>
                       <tr>
@@ -85,12 +85,12 @@
                     <p> Não existem metas cadastradas!</p>
                   <% end %>
                 </div>
-                <div class="row">
-                  <div class="col s12">
-                    <a class="btn-floating btn-small blue" href='<%= "/marks/#{@store.id}/new" %>'>
-                        <i class="large material-icons">add</i>
-                    </a>
-                  </div>
+              </div>
+              <div class="row">
+                <div class="col s12">
+                  <a class="btn-floating halfway-fab waves-effect waves-light blue" href='<%= "/marks/#{@store.id}/new" %>'>
+                      <i class="large material-icons">add</i>
+                  </a>
                 </div>
               </div>
             </div>

@@ -2,7 +2,6 @@
   <div class="col s12">
     <p class="title">Lojas</p>
   </div>
-
   <div class="row cards">
     <div class="col s12">
       <% if @stores.any? %>
@@ -39,6 +38,11 @@
                 </div>
               </div>
             </div>
+            <%= form_tag("/stores/new", method: "get") do %>
+              <button id="adicionar-store" class="btn-floating halfway-fab waves-effect waves-light blue pulse" type="submit">
+                <i class="large material-icons">add</i>
+              </button>
+            <% end %>
           </div>
         <% end %>
       <% else %>
@@ -46,14 +50,4 @@
       <% end %>
     </div>
   </div>
-
-  <div class="fixed-action-btn stores-btn">
-    <%= form_tag("/stores/new", method: "get") do %>
-      <button id="adicionar-store" class="btn-floating btn-large blue pulse" type="submit">
-        <i class="large material-icons">add</i>
-      </button>
-    <% end %>
-  </div>
-
-
 </div>
