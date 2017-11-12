@@ -1,12 +1,12 @@
 <div class="row marks">
 
-  <div class="col s8 offset-s2">
+  <div class="col s12">
     <p class="title">Meta <%= @mark.name %></p>
   </div>
 
   <div class="mark">
     <div class="row cards">
-      <div class="col s8 offset-s2">
+      <div class="col s12">
         <div class="card horizontal">
           <div class="card-content col s12">
               <div class="row">
@@ -15,11 +15,11 @@
                     <p><b>Mês referencia</b></p>
                     <p><%= @mark.month.strftime("%B") %></p>
                   </div>
-                  <div class="col s12 l3">
+                  <div class="col s6 l3">
                     <p><b>Data de início</b></p>
                     <p><%= @mark.start_date %></p>
                   </div>
-                  <div class="col s12 l3">
+                  <div class="col s6 l3">
                     <p><b>Data final</b></p>
                     <p><%= @mark.end_date %></p>
                   </div>
@@ -37,13 +37,13 @@
 
 
   <% @mark.daily_marks.each do |daily_mark| %>
-      <div class="col s8 offset-s2">
+      <div class="col s12">
         <p class="title">Meta <%= daily_mark.date %> - <%= number_to_currency(daily_mark.value)%> </p>
       </div>
 
       <div class="store">
         <div class="row cards">
-          <div class="col s8 offset-s2">
+          <div class="col s12">
             <div class="card horizontal">
               <div class="card-content col s12">
                 <div class="row">

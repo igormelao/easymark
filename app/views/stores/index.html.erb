@@ -1,25 +1,25 @@
 <div class="row stores">
-  <div class="col s8 offset-s2">
+  <div class="col s12">
     <p class="title">Lojas</p>
   </div>
 
   <div class="row cards">
-    <div class="col s8 offset-s2">
+    <div class="col s12">
       <% if @stores.any? %>
         <% @stores.each do |store| %>
           <div class="card horizontal">
             <div class="card-content col s12">
               <div class="col s12 l8 m12">
                 <div class="row">
-                  <div class="col s12 m10 l9">
+                  <div class="col s8 m10 l9">
                     <p class="title"><%= truncate(store.name, length: 30, omission: '...') %></p>
                   </div>
-                  <div class="col s12 m1">
+                  <div class="col s2 m1">
                     <a href='<%= "/stores/#{store.id}/edit" %>' >
                       <i class="material-icons icon">edit</i>
                     </a>
                   </div>
-                  <div class="col s12 m1">
+                  <div class="col s2 m1">
                     <a data-confirm="Você tem certeza?" rel="nofollow" data-method="delete" href='<%= "/stores/#{store.id}" %>'>
                       <i class="material-icons icon">delete</i>
                     </a>
