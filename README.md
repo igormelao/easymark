@@ -3,7 +3,7 @@
 ![ruby](https://img.shields.io/badge/Ruby-2.4.1-red.svg)
 ![rails](https://img.shields.io/badge/Rails-5.0.1-red.svg)
 ![docker](https://img.shields.io/docker/automated/jrottenberg/ffmpeg.svg)
-![Codeship Status for igormelao/easymark](https://app.codeship.com/projects/f5581220-a26a-0135-436c-7a11b80692af/status?branch=master)](https://app.codeship.com/projects/254702)
+[ ![Codeship Status for igormelao/easymark](https://app.codeship.com/projects/1ae27c60-ac88-0135-43f5-1adcdbdd3746/status?branch=master)](https://app.codeship.com/projects/257023)
 
 <div>
   <h4>Tenha controle sobre suas metas!</h4>
@@ -44,7 +44,7 @@ Enjoy it!
 
 ### 1. Do a fork at original repository
 ```
-  git@gitlab.com:igormelao/easymark.git
+  git@github.com:igormelao/easymark.git
 ```
 
 ### 2. Clone your fork at a local repository
@@ -88,7 +88,7 @@ $ docker-compose run --rm website rails rspec
 
 ### 1. Add the remote repository source at your local repositoy
 ```
-$ git remote add upstream git@gitlab.com:igormelao/easymark.git
+$ git remote add upstream git@github.com:igormelao/easymark.git
 ```
 
 ### 2. Sync your repository with the original repository
