@@ -39,14 +39,27 @@
               </div>
             </div>
             <%= form_tag("/stores/new", method: "get") do %>
-              <button id="adicionar-store" class="btn-floating halfway-fab waves-effect waves-light blue pulse" type="submit">
+              <button id="adicionar-store" name="adicionar-store" class="btn-floating halfway-fab waves-effect waves-light blue pulse" type="submit">
                 <i class="large material-icons">add</i>
               </button>
             <% end %>
           </div>
         <% end %>
       <% else %>
-        <p>Você ainda não possui nenhuma loja cadastrada!</p>
+      <div class="card horizontal">
+        <div class="card-content col s12">
+          <div class="col s12 l8 m12">
+            <div class="row">
+              <p>Você ainda não possui nenhuma loja cadastrada!</p>
+            </div>
+            <%= form_tag("/stores/new", method: "get") do %>
+              <button id="adicionar-store" name="adicionar-store" class="btn-floating halfway-fab waves-effect waves-light blue pulse" type="submit">
+                <i class="large material-icons">add</i>
+              </button>
+            <% end %>
+          </div>
+        </div>
+      </div>
       <% end %>
     </div>
   </div>
